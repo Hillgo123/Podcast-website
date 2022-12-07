@@ -16,18 +16,21 @@ header {
     background-color: rgb(40, 30, 50);
 }
 
-li, a {
+li,
+a {
     display: inline-block;
     list-style-type: none;
-    margin: 10px;   
+    margin: 10px;
 }
 
 a {
     text-decoration: none;
     transition: font-size 500ms;
 }
-nav ul li::after, h1::after{
-    content:"";
+
+nav ul li::after,
+h1::after {
+    content: "";
     width: 0%;
     height: 2px;
     background: white;
@@ -36,7 +39,8 @@ nav ul li::after, h1::after{
     transition: 500ms;
 }
 
-nav ul li:hover::after, h1:hover::after{
+nav ul li:hover::after,
+h1:hover::after {
     width: 100%;
 }
 
@@ -46,7 +50,8 @@ h1 {
     transition: font-size 500ms;
 }
 
-.mic img{
+/* Home page */
+.mic img {
     height: auto;
     width: 100%;
 }
@@ -54,7 +59,7 @@ h1 {
 .listen_now {
     position: absolute;
     top: 45vh;
-    left:20%;
+    left: 20%;
     flex-direction: column;
     text-align: center;
     align-items: center;
@@ -65,8 +70,9 @@ h1 {
     font-weight: bold;
     font-size: 40px;
 }
+
 .listen_now a button {
-    font-size:30px;
+    font-size: 30px;
     margin-top: 20px;
     background: none;
     padding: 25px;
@@ -78,4 +84,64 @@ h1 {
 
 .listen_now a button:hover {
     transform: scale(1.1);
+}
+
+
+
+/* Sound player */
+.player {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 85vh;
+    width: 400px;
+    height: 50px;
+    color: #fff;
+    padding: 10px;
+}
+
+audio {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.time_bar {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 75vh;
+    width: 70%;
+    height: 10px;
+    background-color: rgb(44, 44, 44);
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.time_bar .progress {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.time {
+    float: right;
+    margin-right: 10px;
+}
+
+button img {
+    transform: translateY(25%);
+    width: 3vh;
+    height:auto;
 }
