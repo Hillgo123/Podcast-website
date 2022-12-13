@@ -33,7 +33,7 @@ play_pause_btn.addEventListener('click', function () {
 mute_unmute_btn.addEventListener('click', function () {
     if (audio.muted) {
         audio.muted = false;
-        mute_unmute_btn.innerHTML = 'Mute';
+        mute_unmute_btn.innerHTML = '<img src="img/volume.png" alt="">';
     } else {
         audio.muted = true;
         mute_unmute_btn.innerHTML = '<img src="img/volume-mute.png" alt="">';
@@ -68,4 +68,10 @@ time_bar.addEventListener('mousemove', function (e) {
     const minutes = Math.floor((percent / 100) * audio.duration / 60);
     const seconds = Math.floor((percent / 100) * audio.duration - minutes * 60);
     timeDisplay.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+    timeDisplay.style.visibility = 'visible';
+});
+
+time_bar.addEventListener('mouseout', function () {
+    timeDisplay.style.visibility = 'hidden';
 });
