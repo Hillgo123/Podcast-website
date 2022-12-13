@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Episode one</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body style="scroll:'no'; overflow: hidden; background-color: black;">
     <div class="container">
         <header>
-                <a href="index.html">
+                <a href="../index.html">
                     <h1> Home</h1>
                 </a>
             <nav>
@@ -28,23 +28,22 @@
         </header>
     </div>
     <div class="mic">
-        <img src="img/video_player.jpg" alt="" style="opacity: 0.5;">
+        <img src="../img/video_player.jpg" alt="" style="opacity: 0.5;">
     </div>
 
     <div class="player">
         <audio class="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-        <button class="backward_btn">Backward</button>
+        <button class="backward_btn" name="skip"><img src="../img/skip_back.png" alt=""></button>
         <button class="play_pause_btn">&#9654;</button>
-        <button class="mute_unmute_btn"><img src="img/volume.png" alt=""></button>
-        <button class="forward_btn">Forward</button>
+        <button class="forward_btn" name="skip"><img src="../img/skip_forward.png" alt=""></button>
     </div>
-    <div class="time_bar">
-        <div class="time_display"></div>
+    <div class="time_bar" id="show_time">
+        <div class="time_display">&nbsp;</div>
         <span class="time">0:00</span>
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>

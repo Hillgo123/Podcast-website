@@ -92,6 +92,8 @@ h1 {
 .player {
     position: absolute;
     transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-evenly;
     left: 50%;
     top: 85vh;
     width: 400px;
@@ -120,7 +122,7 @@ button {
     left: 50%;
     top: 75vh;
     width: 70%;
-    height: 10px;
+    height: 12.5px;
     background-color: rgb(44, 44, 44);
     margin-top: 10px;
     border-radius: 5px;
@@ -135,13 +137,24 @@ button {
     background-color: #fff;
 }
 
+#show_time {
+    display: flex;
+    justify-content: space-between;
+}
+
 .time {
     float: right;
     margin-right: 10px;
+    margin-top: 20px;
+}
+
+.time_display {
+    margin-left: 10px;
+    margin-top: 20px;
 }
 
 button img {
     transform: translateY(25%);
-    width: 3vh;
+    width: 30px;
     height:auto;
 }

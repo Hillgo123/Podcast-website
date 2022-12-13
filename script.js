@@ -1,6 +1,5 @@
 const audio = document.querySelector('.audio');
 const play_pause_btn = document.querySelector('.play_pause_btn');
-const mute_unmute_btn = document.querySelector('.mute_unmute_btn');
 
 const time_bar = document.querySelector('.time_bar');
 const progress = document.createElement('div');
@@ -22,21 +21,10 @@ audio.addEventListener('timeupdate', function () {
 play_pause_btn.addEventListener('click', function () {
     if (audio.paused) {
         audio.play();
-
         play_pause_btn.innerHTML = '&#9612;&#9612;';
     } else {
         audio.pause();
         play_pause_btn.innerHTML = '&#9654;';
-    }
-});
-
-mute_unmute_btn.addEventListener('click', function () {
-    if (audio.muted) {
-        audio.muted = false;
-        mute_unmute_btn.innerHTML = '<img src="img/volume.png" alt="">';
-    } else {
-        audio.muted = true;
-        mute_unmute_btn.innerHTML = '<img src="img/volume-mute.png" alt="">';
     }
 });
 
@@ -52,6 +40,25 @@ backward_btn.addEventListener('click', function () {
     audio.currentTime -= 10;
 });
 
+document.addEventListener('keydown', function (e) {
+    if (e.keyCode == 37) { // Left arrow key
+        audio.currentTime -= 10;
+    } else if (e.keyCode == 39) { // Right arrow key
+        audio.currentTime += 10;
+    }
+
+    if (e.keyCode === 32) {
+        if (audio.paused) {
+            audio.play();
+            play_pause_btn.innerHTML = '&#9612;&#9612;';
+        } else {
+            audio.pause();
+            play_pause_btn.innerHTML = '&#9654;';
+        }
+    }
+});
+
+
 time_bar.addEventListener('click', function (e) {
     const width = time_bar.offsetWidth;
     const percent = (e.offsetX / width) * 100;
@@ -59,7 +66,10 @@ time_bar.addEventListener('click', function (e) {
     audio.currentTime = (percent / 100) * audio.duration;
 });
 
-const timeDisplay = document.querySelector('.time_display');
+
+const time_display = document.querySelector('.time_display');
+let is_dragging = false;
+
 
 time_bar.addEventListener('mousemove', function (e) {
     const width = time_bar.offsetWidth;
@@ -67,11 +77,25 @@ time_bar.addEventListener('mousemove', function (e) {
 
     const minutes = Math.floor((percent / 100) * audio.duration / 60);
     const seconds = Math.floor((percent / 100) * audio.duration - minutes * 60);
-    timeDisplay.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-    timeDisplay.style.visibility = 'visible';
+    if (is_dragging) {
+        const width = time_bar.offsetWidth;
+        const percent = (e.offsetX / width) * 100;
+
+        audio.currentTime = (percent / 100) * audio.duration;
+    }
+});
+
+time_bar.addEventListener('mouseup', function () {
+    is_dragging = false;
 });
 
 time_bar.addEventListener('mouseout', function () {
-    timeDisplay.style.visibility = 'hidden';
+    time_display.innerHTML = '&nbsp;';
 });
+
+time_bar.addEventListener('mousein', function () {
+    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+});
+
