@@ -18,6 +18,10 @@ audio.addEventListener('timeupdate', function () {
     time.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 });
 
+
+const forward_btn = document.querySelector('.forward_btn');
+const backward_btn = document.querySelector('.backward_btn');
+
 play_pause_btn.addEventListener('click', function () {
     if (audio.paused) {
         audio.play();
@@ -27,10 +31,6 @@ play_pause_btn.addEventListener('click', function () {
         play_pause_btn.innerHTML = '&#9654;';
     }
 });
-
-const forward_btn = document.querySelector('.forward_btn');
-const backward_btn = document.querySelector('.backward_btn');
-
 
 forward_btn.addEventListener('click', function () {
     audio.currentTime += 10;
@@ -47,17 +47,16 @@ document.addEventListener('keydown', function (e) {
         audio.currentTime += 10;
     }
 
-    if (e.keyCode === 32) {
+    if (e.keyCode === 32) { // Space bar
         if (audio.paused) {
             audio.play();
-            play_pause_btn.innerHTML = '&#9612;&#9612;';
+            play_pause_btn.innerHTML = '&#9612;&#9612;'; // change icon
         } else {
             audio.pause();
-            play_pause_btn.innerHTML = '&#9654;';
+            play_pause_btn.innerHTML = '&#9654;'; // change icon
         }
     }
 });
-
 
 time_bar.addEventListener('click', function (e) {
     const width = time_bar.offsetWidth;
@@ -70,14 +69,13 @@ time_bar.addEventListener('click', function (e) {
 const time_display = document.querySelector('.time_display');
 let is_dragging = false;
 
-
 time_bar.addEventListener('mousemove', function (e) {
     const width = time_bar.offsetWidth;
     const percent = (e.offsetX / width) * 100;
 
     const minutes = Math.floor((percent / 100) * audio.duration / 60);
     const seconds = Math.floor((percent / 100) * audio.duration - minutes * 60);
-    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 
     if (is_dragging) {
         const width = time_bar.offsetWidth;
@@ -93,9 +91,9 @@ time_bar.addEventListener('mouseup', function () {
 
 time_bar.addEventListener('mouseout', function () {
     time_display.innerHTML = '&nbsp;';
+    time_display.innerHTML = '';
 });
 
 time_bar.addEventListener('mousein', function () {
     time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 });
-
