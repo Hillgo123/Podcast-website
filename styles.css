@@ -73,7 +73,7 @@ h1 {
     font-size: 40px;
 }
 
-.listen_now a button {
+input {
     font-size: 30px;
     margin-top: 20px;
     background: none;
@@ -84,7 +84,7 @@ h1 {
     transition: 0.5s;
 }
 
-.listen_now a button:hover {
+input:hover {
     transform: scale(1.1);
 }
 
@@ -162,7 +162,14 @@ button img {
 }
 
 /* About us */
-
+.about {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 45vh;
+    display: flex;
+    text-align: center;
+}
 
 /* Episodes */
 .feed {

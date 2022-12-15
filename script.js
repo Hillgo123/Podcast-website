@@ -1,17 +1,17 @@
-// select audio element and play/pause button
+// Selects audio element and play/pause button
 const audio = document.querySelector('.audio');
 const play_pause_btn = document.querySelector('.play_pause_btn');
 
-// create progress bar for time bar element
+// Creates progress bar for time bar element
 const time_bar = document.querySelector('.time_bar');
 const progress = document.createElement('div');
 progress.classList.add('progress');
 time_bar.appendChild(progress);
 
-// select time element to display current audio time
+// Selects time element to display current audio time
 const time = document.querySelector('.time');
 
-// event listener for timeupdate to update progress bar and current time display
+// Adds event listener for timeupdate to update progress bar and current time display
 audio.addEventListener('timeupdate', function () {
     // calculate percentage of audio played and set width of progress bar
     const percent = (audio.currentTime / audio.duration) * 100;
@@ -23,11 +23,11 @@ audio.addEventListener('timeupdate', function () {
     time.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 });
 
-// Select the forward and backward buttons
+// Selects the forward and backward buttons
 const forward_btn = document.querySelector('.forward_btn');
 const backward_btn = document.querySelector('.backward_btn');
 
-// Add event listener to the play/pause button to play/pause the audio
+// Adds event listener to the play/pause button to play/pause the audio
 play_pause_btn.addEventListener('click', function () {
     // Check if audio is paused
     if (audio.paused) {
@@ -43,19 +43,19 @@ play_pause_btn.addEventListener('click', function () {
     }
 });
 
-// Add event listener to the forward button to move audio forward by 10 seconds
+// Adds event listener to the forward button to move audio forward by 10 seconds
 forward_btn.addEventListener('click', function () {
     // Update the audio current time by 10 seconds
     audio.currentTime += 10;
 });
 
-// Add event listener to the backward button to move audio backward by 10 seconds
+// Adds event listener to the backward button to move audio backward by 10 seconds
 backward_btn.addEventListener('click', function () {
     // Update the audio current time by -10 seconds
     audio.currentTime -= 10;
 });
 
-// Listen for keydown events and perform actions based on keycode
+// Listens for keydown events and perform actions based on keycode
 document.addEventListener('keydown', function (e) {
     // If left arrow key is pressed, decrease current time by 10 seconds
     if (e.keyCode == 37) {
@@ -78,7 +78,7 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-// Listen for clicks on the time bar and set audio current time based on click position
+// Listens for clicks on the time bar and set audio current time based on click position
 time_bar.addEventListener('click', function (e) {
     // Get width of time bar in pixels
     const width = time_bar.offsetWidth;
@@ -89,13 +89,13 @@ time_bar.addEventListener('click', function (e) {
 });
 
 
-// Select the time display element
+// Selects the time display element
 const time_display = document.querySelector('.time_display');
 
 // Create a variable to track whether the mouse is being dragged
 let is_dragging = false;
 
-// Listen for mousemove events on the time bar
+// Listens for mousemove events on the time bar
 time_bar.addEventListener('mousemove', function (e) {
     // Calculate the width of the time bar and the percentage of the mouse position
     const width = time_bar.offsetWidth;
@@ -117,19 +117,19 @@ time_bar.addEventListener('mousemove', function (e) {
     }
 });
 
-// Add an event listener to the time bar for when the mouse is released
+// Adds an event listener to the time bar for when the mouse is released
 time_bar.addEventListener('mouseup', function () {
     is_dragging = false;
 });
 
-// Add an event listener to the time bar for when the mouse leaves the element
+// Adds an event listener to the time bar for when the mouse leaves the element
 time_bar.addEventListener('mouseout', function () {
     // Clear the time display
     time_display.innerHTML = ' ';
     time_display.innerHTML = '';
 });
 
-// Add an event listener to the time bar for when the mouse enters the element
+// Adds an event listener to the time bar for when the mouse enters the element
 time_bar.addEventListener('mousein', function () {
     // Update the time display with the current time
     time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
