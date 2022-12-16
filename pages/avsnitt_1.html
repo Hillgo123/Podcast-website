@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body style="overflow: hidden; background-color: black;">
+<body id="audio_player_background">
     <div class="container">
         <header>
             <a href="../index.html">
@@ -17,9 +17,9 @@
                     Students Future Podcast
                 </h1>
             </a>
-            <h3>
+            <!-- <h3>
                 <a href="avsnitt_1.html">Avsnitt 1</a>
-            </h3>
+            </h3> -->
             <nav>
                 <ul>
                     <li><a href="avsnitt.html">Avsnitt</a></li>
@@ -28,12 +28,12 @@
             </nav>
         </header>
     </div>
-    <div class="mic">
+    <div class="background">
         <img src="../img/video_player.jpg" alt="" style="opacity: 0.5;">
     </div>
 
     <div class="player">
-        <audio class="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        <audio class="audio" src="../podcast.mp3"></audio>
         <button class="backward_btn"><img src="../img/skip_back.png" alt=""></button>
         <button class="play_pause_btn">&#9654;</button>
         <button class="forward_btn"><img src="../img/skip_forward.png" alt=""></button>

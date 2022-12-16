@@ -125,7 +125,6 @@ time_bar.addEventListener('mouseup', function () {
 // Adds an event listener to the time bar for when the mouse leaves the element
 time_bar.addEventListener('mouseout', function () {
     // Clear the time display
-    time_display.innerHTML = ' ';
     time_display.innerHTML = '';
 });
 
