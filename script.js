@@ -106,7 +106,7 @@ time_bar.addEventListener('mousemove', function (e) {
     const seconds = Math.floor((percent / 100) * audio.duration - minutes * 60);
 
     // Update the time display with the calculated minutes and seconds
-    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+    time_display.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
     // If the mouse is being dragged, update the audio current time
     if (is_dragging) {
