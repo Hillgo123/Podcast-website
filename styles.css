@@ -252,6 +252,10 @@ button img {
     width: 20vh;
 }
 
+.episode a{
+    margin: 0;
+}
+
 h2 {
     padding-bottom: 5px;
     font-size: 30px;
